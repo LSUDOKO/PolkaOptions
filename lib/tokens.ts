@@ -1,0 +1,28 @@
+export const tokens = {
+  colors: {
+    bg:          '#0A0A0A',
+    bgCard:      '#111111',
+    bgDark:      '#0D0D0D',
+    pink:        '#E6007A',
+    pinkDim:     'rgba(230, 0, 122, 0.15)',
+    purple:      '#552BBF',
+    cyan:        '#00FF9D',
+    cyanDim:     'rgba(0, 255, 157, 0.1)',
+    orange:      '#FF6B35',
+    white:       '#FFFFFF',
+    muted:       '#666666',
+    mutedLt:     '#999999',
+    border:      'rgba(255,255,255,0.08)',
+    borderHover: 'rgba(255,255,255,0.2)',
+    blue:        '#00B2FF',
+    teal:        '#1ECAA2',
+    surface:     '#131313',
+    surfaceHigh: '#2a2a2a',
+  },
+  fonts: {
+    display: '"Bebas Neue", sans-serif',
+    headline: '"Bebas Neue", sans-serif',
+    hero: '"Anton", sans-serif',
+    mono: '"Courier Prime", monospace',
+  },
+} as const;

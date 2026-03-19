@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #0A0A0A;
+  --color-bg-card: #111111;
+  --color-bg-dark: #0D0D0D;
+  --color-pink: #E6007A;
+  --color-pink-dim: rgba(230, 0, 122, 0.12);
+  --color-purple: #552BBF;
+  --color-cyan: #00FF9D;
+  --color-cyan-dim: rgba(0, 255, 157, 0.1);
+  --color-blue: #00B2FF;
+  --color-orange: #FF6B35;
+  --color-muted: #666666;
+  --color-muted-lt: #999999;
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-hover: rgba(255,255,255,0.2);
+  --color-teal: #1ECAA2;
+  --color-surface: #131313;
+  --color-surface-high: #2a2a2a;
+
+  --font-display: 'Anton', sans-serif;
+  --font-headline: 'Bebas Neue', sans-serif;
+  --font-mono: 'Courier Prime', monospace;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--color-bg);
+    color: white;
+    cursor: none;
+  }
+
+  body {
+    font-family: var(--font-mono);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-pink);
+    color: black;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-card);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-pink);
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-headline {
+    font-family: var(--font-headline);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .grain {
+    position: relative;
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 10;
+  }
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+  width: max-content;
+}
+
+@utility animate-blink {
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@utility animate-cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
